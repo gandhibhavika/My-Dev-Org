@@ -1,0 +1,10 @@
+<template>
+	<lightning-card variant="Narrow" title="Country Details" icon-name="standard:search">
+		<div if:true={selectedCountryString} class="slds-m-around_small">
+			<b>Countries Visited:</b> {selectedCountryString}<br>
+			<b>Total:</b> {selectedCountry.length}
+		</div>
+		<hr>
+		<c-child-country-list-component records={countryData} url={urlCountry} oncname={handleDetail}></c-child-country-list-component>
+	</lightning-card>
+</template>

@@ -1,0 +1,23 @@
+<apex:page controller="AccountContactCountUsingMap" >
+<!--<apex:page controller="AccountContactCount" >-->
+    <apex:form >
+        <apex:pageBlock title="Account and Contacts">
+            <apex:pageBlockSection title="No of child contact">
+                <table width="100%">
+                    <tr>
+                        <th>sNo</th>
+                        <th>Account Name</th>
+                        <th>Contact Count</th>
+                    </tr>
+                    <apex:repeat value="{!accountWrapper}" var="accR">
+                        <tr>
+                            <td>{!accR.sNo}</td> 
+                            <td>{!accR.Name}</td>
+                            <td>{!accR.Count}</td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page controller="ConcatAccountAndChildContactName">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!wrapperRecords}" var="wrappRec">
+                    <apex:column headerValue="Account Name"> 
+                        <apex:outputText value="{!wrappRec.accountName}"></apex:outputText>
+                    </apex:column>
+                        <apex:column headerValue="Contact Name">
+                           <apex:outputText value="{!wrappRec.conCount}"></apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="concated">
+                          <apex:outputText value="{!wrappRec.concated}"></apex:outputText>
+                        </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

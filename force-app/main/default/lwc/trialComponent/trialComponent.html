@@ -1,0 +1,10 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Parent Component" icon-name="standard:account">
+    
+<lightning-input type="text" variant="standard" name="text" value={value} label="Enter Text" placeholder="type here..." onchange={handleChange}></lightning-input>
+<lightning-button variant="base" label="Show" title="titleName" onclick={handleClick} type="reset"></lightning-button>
+<div if:true={showInChild}>
+<c-trial-child-component text={showInChild}></c-trial-child-component>
+</div>
+</lightning-card>
+</template>

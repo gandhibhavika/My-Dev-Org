@@ -1,0 +1,86 @@
+<apex:page controller="SelectOptionController" >
+    <apex:form id="frm">
+        <apex:pageBlock >
+            <apex:actionFunction action="{!callObject}" name="actionFunc" />
+            <b>Select Object</b>   &nbsp;&nbsp;&nbsp;
+            <apex:selectList size="1" title="Select Object" value="{!chosenValue}" onchange="actionFunc();">
+                <apex:selectOptions value="{!options}"/>
+            </apex:selectList>
+            <br/><br/>
+            <apex:pageBlockButtons >
+                <apex:commandButton rendered="{!showCopyTo}" value="Copy To" action="{!showPopup}" reRender="frm" />
+            </apex:pageBlockButtons> 
+            <!--dialog box start-->
+            <apex:outputPanel id="popupPanel"  styleClass="customPopup"  layout="Block" rendered="{!displayPopup}" >
+                <apex:commandButton value="X" action="{!closePopup}" reRender="frm" style="color: #333; float: right;" />
+                <br/><br/>
+                <apex:selectList size="1" title="Select Object" value="{!popupchosenValue}" >
+                    <b> Object List </b> &nbsp; &nbsp;
+                    <apex:selectOptions value="{!options}"/>
+                </apex:selectList> ;
+                <b style=" float: right;">
+                    Search Record 
+                    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <apex:inputText value="{!name}"/>
+                    <br/><br/></b>
+                <apex:commandButton value="Search" action="{!fillWrapper}" style="margin-left:40%"/>
+                <br/><br/>
+                <apex:actionFunction action="{!selectAllRecforDBox}" name="actionFunforDbox"/>
+                <apex:actionFunction action="{!syncRecordCbox}" name="Dboxchecktick"/>
+                <apex:pageBlock rendered="{!onSearch}">
+                    <div style="overflow:scroll;  width:100% ; height:350px;" >
+                        <apex:pageBlockTable value="{!wrapperRecordList}" var="wRl" rendered="{!columnVisiblityDb}" >
+                            <apex:column headerValue="Action">
+                                <apex:facet name="header" >
+                                    <apex:inputCheckbox value="{!MasterCheckTick}" onchange="actionFunforDbox();" />
+                                </apex:facet>
+                                <apex:inputCheckbox value="{!wRl.checktick}" onchange="Dboxchecktick();" />
+                            </apex:column>
+                            <apex:column headervalue="sno" value="{!wRl.sno}" />
+                            <apex:column headerValue="Name" value="{!wRl.Name}"/>
+                        </apex:pageBlockTable>
+                    </div>
+                </apex:pageBlock>             
+                &nbsp;&nbsp;&nbsp;
+                <apex:commandButton rendered="{!!showCopyAssign}" value="Copy Assign" action="{!copyAttachment}" reRender="frm"/>
+            </apex:outputPanel>
+            <!-- dialog box end-->
+            <apex:actionFunction action="{!selectAllRecords}" name="actionFunction12" reRender="frm"  />
+            <apex:actionFunction action="{!syncAttCheckboxes}" name="acFuncCbox" reRender="frm"  />
+            <apex:pageBlockTable value="{!attachmentWrapper}" var="attR" rendered="{!columnVisiblity}">
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:inputCheckbox value="{!mainCheckbox}" onchange="actionFunction12();" />                    
+                    </apex:facet>
+                    <apex:inputCheckbox id="mycheckbox" value="{!attR.isSelected}" onchange="acFuncCbox();" />  
+                </apex:column>
+                
+                <apex:column headerValue="Name"><apex:outputField value="{!attR.attrec.Parent.Name}"/> </apex:column>
+                <apex:column headerValue="Attachments"><apex:outputField value="{!attR.attrec.Name}"/> </apex:column>
+                <apex:column headerValue="ContentType"><apex:outputField value="{!attR.attrec.ContentType}"/></apex:column>
+                <apex:column headerValue="Files">
+                    <img src="/servlet/servlet.FileDownload?file={!attR.attrec.Id}" width="100px" height="80px"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <style type="text/css">
+            .customPopup{
+            box-shadow: 0px 3px 7px rgba(1, 1, 1, 5);
+            border-width: 1px;
+            border-style: solid;
+            z-index: 9999;
+            left: 60%;
+            background-color: lightgrey;
+            padding:5px;
+            position: absolute;        
+            width:650px;
+            margin-left:-450px;
+            top:100px;
+            }
+            @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+            }
+        </style>
+    </apex:form>
+</apex:page>

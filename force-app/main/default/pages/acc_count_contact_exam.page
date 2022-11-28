@@ -1,0 +1,18 @@
+<apex:page tabStyle="Exam__tab" controller="AccCountContactExamController">
+    <apex:form >
+    <apex:pageBlock >
+    <apex:pageBlockSection title="Hello" >
+        <apex:actionFunction name="actionFunc" action="{!handleClick}"/>
+        <apex:inputCheckbox label="Show count" value="{!cBox}" onclick="actionFunc();" style="float: left;"/>
+        <apex:pageBlockTable value="{!accContWrapper}" var="accCon" border="1px" >
+            <apex:column headerValue="Account" >
+            <apex:outputText value="{!accCon.accName}"/>
+            </apex:column>
+            <apex:column headerValue="Count" rendered="{!cBox}">
+                <apex:outputText value="{!accCon.countCon}" />
+            </apex:column>
+        </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

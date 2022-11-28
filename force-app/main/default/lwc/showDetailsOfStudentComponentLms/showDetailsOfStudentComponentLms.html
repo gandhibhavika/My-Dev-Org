@@ -1,0 +1,17 @@
+<template>
+	<lightning-card variant="Narrow" title="Student List" icon-name="standard:person_name">
+		<div if:true={students} class="slds-box slds-m-around_medium">
+                       
+						<div class="slds-align_absolute-center">
+                            <img src={students.Image_Url__c}
+						            height="300px"
+						            width="300px"/>
+						</div>
+                                    <br>
+						<b>Name</b>: {students.Name} <br>
+                        <b>City</b> {students.City__c}<br>
+						<b>Email</b> {students.Email__c}
+	
+		</div>
+	</lightning-card>
+</template>

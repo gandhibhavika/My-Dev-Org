@@ -1,0 +1,10 @@
+<apex:page controller="AccountLatestContact">
+    <apex:pageBlock >
+    <apex:pageBlockSection title="Account Contact Table">
+        <apex:pageBlockTable value="{!wrapperClass}" var="wC">
+        <apex:column headerValue="Account" value="{!wC.acName}"/>
+            <apex:column headerValue="Contact" value="{!wC.coName}"/>
+        </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

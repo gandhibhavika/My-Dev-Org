@@ -1,0 +1,18 @@
+<apex:page controller="BookingEditDetailController">
+    <apex:sectionHeader title="Input/Detail" subtitle="Booking"/>
+    <apex:form >
+        <apex:pageBlock title="Booking Input Field">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="https://ibirds-14f-dev-ed--c.vf.force.com/apex/Booking_detail1?core.apexpages.request.devconsole=1" value="Save"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Booking Record">
+                <apex:repeat value="{!inputRecord}" var="iRec">
+                    <apex:inputText label="Name" value="{!iRec.Name}"/>     
+                    <apex:inputText label="Room No." value="{!iRec.Room__c}"/> 
+                    <apex:inputText label="Check In Time" value="{!iRec.Check_in__c }"/>
+                    <apex:inputText label="Check Out Time" value="{!iRec.Check_Out_Time__c}"/>
+                    </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

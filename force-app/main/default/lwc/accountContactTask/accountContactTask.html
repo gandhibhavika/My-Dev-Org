@@ -1,0 +1,18 @@
+<template>
+	<lightning-card variant="Narrow" title="Hiearchy Picklist" icon-name="standard:account">
+		<lightning-combobox name="account" label="Select account" value={accValue} placeholder="Select account"
+			options={optionsAcc} onchange={handleChangeAccount}></lightning-combobox>
+
+		<div if:true={accValue}>
+			<lightning-combobox name="contact" label="Select Contact" value={conValue} placeholder="Select Contact" options={optionsCon} onchange={handleChangeContact}>
+			</lightning-combobox>
+		</div>
+        <div if:true={conValue}>
+            <lightning-datatable
+                key-field="id"
+                data={taskRecords}
+                columns={columnsList}>
+            </lightning-datatable>
+        </div>
+	</lightning-card>
+</template>

@@ -1,0 +1,24 @@
+<apex:page standardController="Customer">
+    <apex:SectionHeader Title="Customer Edit" subtitle="New Customer" />
+    <apex:form >
+        <apex:pageblock Title="Customer">
+            <apex:pageBlockSection title="Information" collapsible="false" />
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!Save}" value="Save"/>
+                <apex:commandButton action="{!Save}"  value="Save & New"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                 <apex:inputField value="{!Customer.PartyId}" />	
+                <apex:inputField value="{!Customer.Name}" />
+                <apex:inputField value="{!Customer.Gender__c}"/>
+                <apex:inputField value="{!Customer.email__c}"/>
+                <apex:inputField value="{!Customer.State__c}"/>
+                <apex:inputField value="{!Customer.Is_Married__c}"/>
+                <apex:inputField value="{!Customer.Address__c}"/>
+                <apex:inputField value="{!Customer.Nationality__c}"/>
+               <apex:inputField value="{!Customer.Phone__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

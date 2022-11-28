@@ -1,0 +1,57 @@
+<template>
+	<h1><b> Custom Component</b></h1>
+	<div
+		style="border:1px solid #d3d3d3; border-top-left-radius:5px; border-top-right-radius:5px; border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
+		<div class="slds-box_small slds-theme_shade"
+			style=" border-top-left-radius:5px; border-top-right-radius:5px; border-bottom:1px solid #d3d3d3;">
+			<lightning-icon icon-name="standard:opportunity" label="Opportunities" size="small"></lightning-icon>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="" style="color: black;"><b><strong>Opportunities ({opportunityLength})</strong></b></a>
+			<lightning-button label="New" slot="actions" style="float:right;  padding-bottom: 1em; onclick={}">
+			</lightning-button>
+		</div>
+		<div if:true={opportunityLength} class="slds-wrap slds-grid slds-m-left_xx-small">
+			<template for:each={opportunityData} for:item="opp">
+				<div class="slds-col slds-size_2-of-6" key={opp.Id}>
+					<lightning-layout horizontal-align="spread">
+						<lightning-layout-item padding="around-small">
+							<lightning-tile label={opp.Name} href="/path/to/somewhere">
+							</lightning-tile>
+
+							<dl class="slds-dl_horizontal ">
+								<dt class="slds-dl_horizontal__label slds-truncate slds-p-right_small">
+									Stage
+								</dt>
+								<dd
+									class="slds-dl_horizontal__detail slds-text-color_weak slds-truncate slds-p-left_small">
+									{opp.StageName}
+								</dd>
+								<dt class="slds-dl_horizontal__label  slds-p-right_small">
+									Amount:
+								</dt>
+								<dd
+									class="slds-dl_horizontal__detail slds-text-color_weak slds-truncate slds-p-left_small">
+									{opp.Amount}
+								</dd>
+								<dt class="slds-dl_horizontal__label slds-truncate  slds-p-right_small">
+									Close Date
+								</dt>
+								<dd
+									class="slds-dl_horizontal__detail slds-text-color_weak slds-truncate slds-p-left_small">
+									{opp.CloseDate}
+								</dd>
+							</dl>
+						</lightning-layout-item>
+						<lightning-layout-item padding="around-small">
+							<lightning-button-menu icon-size="x-small" alternative-text="Show menu">
+								<lightning-menu-item value="Edit" label="Edit"></lightning-menu-item>
+								<lightning-menu-item value="Delete" label="Delete"></lightning-menu-item>
+							</lightning-button-menu>
+						</lightning-layout-item>
+					</lightning-layout>
+				</div>
+			</template>
+		</div>
+		<div if:false={isDesktop} class="slds-card__footer"> View All</div>
+	</div>
+</template>

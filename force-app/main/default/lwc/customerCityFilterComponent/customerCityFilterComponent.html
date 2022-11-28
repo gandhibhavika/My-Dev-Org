@@ -1,0 +1,20 @@
+<template>
+        <lightning-card  variant="Narrow"  title="Account" icon-name="standard:account">
+                <!-- <lightning-button-icon  icon-name="utility:down" variant="border-filled" ></lightning-button-icon> -->
+           <b>Select City</b>     
+<lightning-combobox
+        name="cities"
+        value={value}
+        options={options}
+       onchange={handleCity}
+        >
+</lightning-combobox>
+<br/>
+<br/>
+        <lightning-datatable
+            key-field="id"
+            columns={columns}
+            data={cityCustomer}>
+    </lightning-datatable>
+ </lightning-card>
+</template>

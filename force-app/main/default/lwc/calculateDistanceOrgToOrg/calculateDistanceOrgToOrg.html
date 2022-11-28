@@ -1,0 +1,31 @@
+<template>
+	<lightning-card variant="Narrow" title="Distance Caluculator" icon-name="utility:resource_territory">
+		<div class="slds-m-around_medium">
+			<lightning-button icon-name="utility:travel_and_places" style="width:20px; height:20px; padding:10px;"
+				onclick={handelCLickCar}>
+			</lightning-button>
+			<lightning-button icon-name="custom:custom36" style="padding:10px;" class="slds-icon__large"
+				onclick={handelCLickTrain}></lightning-button>
+			<lightning-button icon-name="utility:trail" style=" padding:10px;" class="slds-icon_large"
+				onclick={handelCLickWalk}></lightning-button>
+			<lightning-button icon-name="custom:custom80" style="padding:10px;" class="slds-icon_large"
+				onclick={handelCLickBike}></lightning-button>
+			<lightning-button icon-name="custom:custom20" style="padding:10px;" class="slds-icon_large"
+				onclick={handelCLickPlane}></lightning-button>
+		</div>
+		<div class="slds-m-around_medium">
+			<lightning-input type="text" variant="standard" name="Cname1" placeholder="Arrival" onchange={handleChange}>
+			</lightning-input>
+			<lightning-input type="text" variant="standard" name="Cname2" placeholder="Departure"
+				onchange={handleChange}></lightning-input>
+			<div if:true={responseBody}>
+		<div if:true={timeInHours} class="slds-align_absolute-center" style="height:5rem">
+				<b>{timeInHours} hour  {timeInMinutes} minutes</b>
+		</div>
+		<div if:false={timeInHours} class="slds-align_absolute-center" style="height:5rem">
+				<b>{timeInMinutes} minutes</b>
+		</div>
+			</div>
+		</div>
+	</lightning-card>
+</template>

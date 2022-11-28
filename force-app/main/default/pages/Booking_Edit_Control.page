@@ -1,0 +1,21 @@
+<apex:page Controller="BookingEditDetailController">
+    <apex:form >
+        <apex:sectionHeader title="Booking" subtitle="All Records"/>
+        <apex:pageBlock title="Records">
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!bookingRecord}" var="brecord"  style="width:1100px">
+                    <apex:column >
+                        <a href="/apex/Booking_edit1?id={!brecord.Id}"> Edit </a>
+                        <!--apex:commandLink action="/apex/Booking_edit1?id={!brecord.Id}" value="Edit"/-->
+                    </apex:column>
+                    <apex:column headerValue="Name" value="{!brecord.Name}"/>
+                    <apex:column headerValue="Customer" value="{!brecord.Customer__c}"/>
+                    <apex:column headerValue="Status" value="{!brecord.Status__c}"/>
+                    <apex:column headerValue="Check-In-Time" value="{!brecord.Check_in__c}"/>
+                    <apex:column headerValue="Check-Out-Time" value="{!brecord.Check_Out_Time__c}" />
+                    <apex:column headerValue="Room" value="{!brecord.Room__c}"/>
+                </apex:pageBlockTable> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<template>
+    
+<template for:each={records} for:item="rec">
+    <div key={rec.Id} class="slds-m-around_small">
+     <table>
+             <tr>
+				  <td><img src={url}  height="200px" width="200px"/></td>
+   <td><b>Country:</b> {rec.Name}<br/>
+   <b>Capital:</b> {rec.Capital__c}<br/>
+   <b>Population:</b> {rec.Population__c}<br/>
+   <b>President:</b> {rec.President__c}<br/>
+   <lightning-input name={rec.Name} type="checkbox" variant="standard" value={isChecked} 
+   data-id="checkbox" label="Visited" onchange={handleChange}></lightning-input></td>
+   
+    </tr>
+			</table>
+    </div>
+</template>
+</template>

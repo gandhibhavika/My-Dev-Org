@@ -1,0 +1,36 @@
+<apex:page standardController="Student__c" recordSetVar="Student">
+    <apex:form >
+        <apex:sectionHeader title="Student" subtitle="All Records"/>
+        <apex:pageBlock title="Records">
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="https://ibirds-14f-dev-ed.my.salesforce.com/a00/e?retURL=%2Fa00%2Fo" value="New Student"/>
+                <apex:commandButton action="{!first}" value="First"/>
+                <apex:commandButton action="{!next}" value="Next"/>
+                <apex:commandButton action="{!last}" value="Last"/>
+                <apex:commandButton action="https://ibirds-14f-dev-ed.my.salesforce.com/a00?fcf=00B5i00000DTlOD&rolodexIndex=-1&page=1" value="Student Tab"/>
+                
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!Student}" var="St"  style="width:1100px">
+                    
+                    <apex:column headerValue="Action">
+                        <apex:commandLink action="/apex/Student_edit1?Id={!St.Id}" value="Edit"/>
+                        <apex:commandLink action="/apex/Student_view1?Id={!St.id}" value="/View(visuaforce)"/>
+                    </apex:column>
+                    <apex:column headerValue="Action">
+                        <apex:commandLink action="https://ibirds-14f-dev-ed.my.salesforce.com/{!St.id}" value="View(standard)"/>
+                    </apex:column>
+                    <apex:column value="{!St.Name}"/>
+                    <apex:column value="{!St.Class__c}"/>
+                    <apex:column value="{!St.Gender__c}"/>
+                    <apex:column value="{!St.email__c}"/>
+                    <apex:column value="{!St.DOB__c}" />
+                    <apex:column value="{!St.Address__c}"/>
+                    <apex:column value="{!St.Percentage__c}" />
+                    <apex:column value="{!St.Active__c}" />
+                </apex:pageBlockTable> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

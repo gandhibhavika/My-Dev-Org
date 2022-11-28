@@ -1,0 +1,19 @@
+<template>
+	<lightning-card variant="Narrow" title="Parent Component" icon-name="custom:custom9">
+
+		<lightning-layout multiple-rows="true" vertical-align="end">
+			<lightning-layout-item size="6" padding="around-small">
+				<lightning-combobox label="Countries" placeholder="Select country" options={options}
+					onchange={handleChange}>
+				</lightning-combobox>
+			</lightning-layout-item>
+			<lightning-layout-item size="2" padding="around-small">
+				<lightning-button variant="brand" label="Show" onclick={handleContactBtn}></lightning-button>
+			</lightning-layout-item>
+		</lightning-layout>
+		<div if:true={showChildContactCmp}>
+			<c-country-capital-child-component records={contactRecord} url={urlCountry}>
+			</c-country-capital-child-component>
+		</div>
+	</lightning-card>
+</template>

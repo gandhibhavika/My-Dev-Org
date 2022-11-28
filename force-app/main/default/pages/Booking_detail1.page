@@ -1,0 +1,10 @@
+<apex:page controller="BookingEditDetailController">
+    <apex:form >
+        <apex:pageBlock title="Detail Page">
+            <!--     <apex:outputField value="{!inputRecord.Name}"/>Check_in__c 
+<apex:outputField value="{!inputRecord.Room__c}"/>
+<apex:outputField value="{!inputRecord.Check_in_c}"/>    -->
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

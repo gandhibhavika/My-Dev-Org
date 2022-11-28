@@ -1,0 +1,15 @@
+<template>
+ <div class="slds-m-horizontal_x-small slds-card_boundary">
+<lightning-card  variant="Narrow"  title="Son: Micheal" icon-name="custom:custom64">
+   &nbsp; &nbsp; <b> Brother Name: Micheal.</b>
+   <div if:true={showMsg}>
+      &nbsp; &nbsp; {showMsg} 
+      -by Ruby.
+   </div>
+</lightning-card>
+  </div> 
+<br>
+    <div class="slds-m-horizontal_x-small slds-card_boundary">
+    <c-daughter-child-component onpass={fetchMsg}></c-daughter-child-component>
+    </div> 
+</template>

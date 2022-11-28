@@ -1,0 +1,30 @@
+<apex:page controller="SelectedSobjectFieldsController">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:actionFunction name="actionFunc" action="{!objectFields}"/>
+            Select an object:
+            <apex:selectList value="{!selectedObject}" size="1" onchange="actionFunc();">
+                <apex:selectoptions value="{!objNames}"/>
+            </apex:selectList>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem id="myFields">
+                    <apex:outputlabel value="Field Names :"/>   
+                    <apex:panelGrid columns="3">
+                        <apex:selectList value="{!selectedFields}" multiselect="true" style="height:200px;width:200px">
+                            <apex:selectOptions value="{!fieldNames}"/>
+                        </apex:selectList>
+                        <apex:commandButton value="Add" action="{!addFields}"/>
+                    </apex:panelGrid>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                     <apex:outputlabel value="Selected Field :"/>   
+                    <apex:panelGrid columns="3">
+                        <apex:selectList value="{!finalSelectedField}" multiselect="true" style="height:200px;width:200px">
+                            <apex:selectOptions value="{!addedFields}"/>
+                        </apex:selectList>
+                    </apex:panelGrid>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

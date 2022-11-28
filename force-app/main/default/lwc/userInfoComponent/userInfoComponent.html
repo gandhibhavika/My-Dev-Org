@@ -1,0 +1,38 @@
+<template>
+	<lightning-card title="User Details in LWC" icon-name="action:user">
+
+		<div class="slds-float_right slds-m-around-large">
+		Total user: {totalUser}
+		</div>
+		<lightning-layout multiple-rows="true" vertical-align="end">
+			<lightning-layout-item size="4" padding="around-small">
+				<lightning-input type="text" variant="standard" name="searchText" placeholder="Search"
+					onchange={handleSearch}>
+				</lightning-input>
+			</lightning-layout-item>
+			<lightning-layout-item size="2" padding="around-small">
+				<lightning-button variant="base" label="Search" title="Search" onclick={onSearchBtn}>
+				</lightning-button>
+			</lightning-layout-item>
+		</lightning-layout>
+
+		<div class="slds-scrollable" style="height:20rem;width:25rem">
+			<table>
+				<tbody>
+					<template for:each={filteredUserData} for:item="usr">
+
+						<!-- <div key={usr.Id} class="slds-m-top_large"> -->
+						<tr key={usr.Id}>
+							<td style="padding-top: 10px;">
+								<img src = {usr.FullPhotoUrl} alt="User Image" height="30px" width="75px"/></td>
+							<td>
+								{usr.Name}<br>{usr.Email}
+                            </td>
+						</tr>
+						<!-- </div> -->
+					</template>
+				</tbody>
+			</table>
+		</div>
+	</lightning-card>
+</template>

@@ -1,0 +1,29 @@
+<apex:page controller="AttachFile">
+    <apex:form id="rf">
+        
+        <apex:pageBlock title="Account and Contacts">
+            <apex:pageBlockSection title="No of child contact">
+                <apex:pageBlockTable value="{!contactWrapper}" var="cR" style="width:1250px">
+                    <apex:column headerValue="sNo"  value="{!cR.sNo}"/>
+                    <apex:column headerValue="Name"  value="{!cR.Name}"/>
+                    <apex:column headerValue="Phone" value="{!cR.Phone}"/>
+                    <apex:column headerValue="LeadSource" value="{!cR.LeadSource}"/>
+                    <apex:column headerValue="Email" value="{!cR.Email}"/>
+                    <apex:column headerValue="Attach File">
+                        <img src ="/servlet/servlet.FileDownload?file={!cR.attid}" width="75px"/>
+                    </apex:column>
+                    <apex:column headerValue="Action">
+                        <apex:commandButton value="Upload"
+                                            action="/apex/Attach_file_upload?cid={!cR.Id}"/>
+                    </apex:column>
+                    <apex:column headerValue="Action">
+                        <apex:commandButton value="Delete"  immediate="true" action="{!deleteRecord}" 
+                                            reRender="rf">
+                            <apex:param name="Prm" value="{!cR.attid}" assignTo="{!cid}"/>
+                        </apex:commandButton>
+                    </apex:column>
+                </apex:pageBlockTable> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,17 @@
+<template>
+	<lightning-card variant="Narrow" title="Child Component" icon-name="custom:custom9">
+		<div if:true={countryRecords}>
+			<table>
+             <tr>
+				 <td><img src = {url} height="250px" width="300px"/></td>
+			<td><b> Country </b>: {countryRecords.Name}<br/>
+			<b> Population </b> : {countryRecords.Population__c}<br/>
+			<b> President </b>: {countryRecords.President__c}<br/>
+            <b> Capital </b> {countryRecords.Capital__c}<br/></td>
+             </tr>
+			</table>
+			
+		</div>
+		
+	</lightning-card>
+</template>

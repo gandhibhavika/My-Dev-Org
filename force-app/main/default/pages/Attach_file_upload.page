@@ -1,0 +1,14 @@
+<apex:page controller="AttachFileUploadController">
+    <apex:form >
+        <apex:pageBlock title="Attachment">
+            <apex:pageBlockSection >
+                <apex:inputFile fileName="{!uploadatt.name}" contentType="{!uploadatt.contentType}" value="{!uploadatt.body}" >
+                </apex:inputFile>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Insert" Action="{!insertAttachment}"  immediate="true"/>
+                <apex:commandButton value="Back" immediate="true" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

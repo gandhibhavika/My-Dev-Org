@@ -1,0 +1,17 @@
+<apex:page controller="Contact_demo_controller">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockTable title="Contact Records" value="{!conRecord}" var="conRec" >
+            <apex:column headerValue="Name">
+                <apex:inputField value="{!conRec.lastName}"/>
+            </apex:column>
+             <apex:column headerValue="Phone">
+                <apex:inputField value="{!conRec.Phone}"/>
+            </apex:column>
+             <apex:column headerValue="Birthdate">
+                <apex:inputField value="{!conRec.Birthdate}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

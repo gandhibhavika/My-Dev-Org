@@ -1,0 +1,27 @@
+<template>
+	<lightning-card variant="Narrow" title="Student List" icon-name="standard:person_name">
+		<div if:true={students} class="slds-box slds-m-around_medium">
+			<template for:each={students} for:item="stu">
+
+				<p key={stu.Id}>
+					<lightning-layout multiple-rows="false" vertical-align="end">
+						<lightning-layout-item size="7" padding="around-small">
+							Name: {stu.Name} <br>
+							<b>Residence </b>in: {selectedCity}
+						</lightning-layout-item>
+						<lightning-layout-item size="5" padding="around-small">
+							<lightning-button variant="success" label="Show Detail" data-stu-id={stu.Id} onclick={handleShowDetails}>
+							</lightning-button>
+						</lightning-layout-item><br><br>
+					</lightning-layout>
+                    </p>
+
+			</template>
+		</div>
+
+		<div if:false={students} class="slds-box slds-m-around_medium">
+			<p class="slds-text-heading_small" style="color:red"> Student not available </p>
+
+		</div>
+	</lightning-card>
+</template>

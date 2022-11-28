@@ -1,0 +1,37 @@
+<apex:page controller="Bookingcontroller" >
+    <apex:form >
+        <apex:pageBlock > 
+            <apex:commandButton action="{!saveRecord}" value="save">
+                <apex:sectionHeader title="Hotels" subtitle="3 Hotels"/>
+                <apex:pageBlock Title="Mariott Hotel">
+                    <apex:pageBlockSection title="Record of customers">
+                        <apex:inputField value="{!newBooking.Customer__c}"/>
+                        <apex:inputField value="{!newBooking.Room__c}"/>
+                        <apex:inputField value="{!newBooking.Status__c}"/>
+                        <apex:inputField value="{!newBooking.Check_in__c}"/>
+                        <apex:inputField value="{!newBooking.Check_Out_Time__c}"/>
+                    </apex:pageBlockSection>   
+                </apex:pageBlock>
+                
+                <apex:pageBlock Title="Grand Uniara Hotel">
+                    <apex:pageBlockSection title="Record of customers">
+                        <apex:inputField value="{!newBooking2.Customer__c}"/>
+                        <apex:inputField value="{!newBooking2.Room__c}"/>
+                        <apex:inputField value="{!newBooking2.Status__c}"/>
+                        <apex:inputField value="{!newBooking2.Check_in__c}"/>
+                        <apex:inputField value="{!newBooking2.Check_Out_Time__c}"/>
+                    </apex:pageBlockSection> 
+                </apex:pageBlock>
+                
+                <apex:pageBlock Title="HOTEL DIONA">
+                    <apex:pageBlockSection title="Record of customers">
+                        <apex:inputField value="{!newBooking3.Customer__c}"/>
+                        <apex:inputField value="{!newBooking3.Room__c}"/>
+                        <apex:inputField value="{!newBooking3.Status__c}"/>
+                        <apex:inputField value="{!newBooking3.Check_in__c}"/>
+                    </apex:pageBlockSection> 
+                </apex:pageBlock>
+            </apex:commandButton>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

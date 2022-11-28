@@ -1,0 +1,10 @@
+<template>
+<lightning-card variant="Narrow" title="Account" icon-name="standard:account">
+    <div class="slds-p-around_x-small">
+		<lightning-input type="text" variant="standard" name="Name" label="Name"  placeholder="type here..." onchange={handleChange}></lightning-input>
+        <lightning-input type="text" variant="standard" name="Phone" label="Phone"  placeholder="type here..." onchange={handleChange}></lightning-input>
+        <lightning-input type="text" variant="standard" name="Type" label="Type"  placeholder="type here..." onchange={handleChange}></lightning-input>	
+        <lightning-button variant="Success" label="Save" onclick={handleClick}></lightning-button>
+    </div>
+</lightning-card>
+</template>

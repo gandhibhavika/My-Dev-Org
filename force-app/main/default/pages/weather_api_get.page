@@ -1,0 +1,24 @@
+<apex:page controller="WeatherApiGet">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:actionFunction action="{!getWeatherDetailsContent}" name="actionFunc" reRender="pbTable"/>
+            <apex:pageBlockSection >
+                <apex:selectList size="1" value="{!selectedCity}" onchange="actionFunc();">
+                    <apex:selectOption itemValue="London" itemLabel="London"/>
+                    <apex:selectOption itemValue="Jaipur" itemLabel="Jaipur"/>
+                    <apex:selectOption itemValue="Paris" itemLabel="Paris"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+           <apex:pageBlockTable id="pbTable" value="{!weatherWrapperList}" var="weather">
+            <apex:column headerValue="Name" value="{!weather.name}"/>
+               <apex:column headerValue="Country" value="{!weather.sys.country}"/>
+               <apex:column headerValue="Sunrise" value="{!weather.sys.sunrise}"/>
+               <apex:column headerValue="Sunset" value="{!weather.sys.sunset}"/>
+               <apex:column headerValue="Temperature" value="{!weather.main.temp}"/>
+               <apex:column headerValue="Feels Like" value="{!weather.main.feels_like}"/>
+               <apex:column headerValue="Pressure" value="{!weather.main.pressure}"/>
+               <apex:column headerValue="Humidity" value="{!weather.main.humidity}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

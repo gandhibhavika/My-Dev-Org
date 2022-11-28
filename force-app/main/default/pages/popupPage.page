@@ -1,0 +1,39 @@
+<apex:page controller="PopupPage" >
+    <apex:form >
+        <apex:pageBlock >
+  <apex:pageBlockButtons >
+    <apex:commandButton value="Copy To" action="{!showPopup}" reRender="popupPanel" />
+    </apex:pageBlockButtons>  
+        <apex:outputPanel id="popupPanel">
+            <apex:outputPanel Id="innerpop" styleClass="customPopup" layout="Block" rendered="{!displayPopup}"/>
+            
+        </apex:outputPanel>
+            </apex:pageBlock>
+        </apex:form>
+            
+        <style type="text/css">
+            .customPopup{
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;        
+            width: 300px;
+            margin-left: -250px;
+            top:100px;
+            }
+            .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            }
+        </style>
+    </apex:page>

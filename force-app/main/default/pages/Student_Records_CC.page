@@ -1,0 +1,24 @@
+<apex:page controller="Student_controller">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:commandButton action="{!addStudent}" value="Add Student" immediate="true"/>
+            <apex:commandButton action="{!deleteRecord}" value="Delete"  immediate="true"/>
+            <apex:commandButton action="{!saveRecord}" value="Save" />
+            
+            <apex:pageBlockTable value="{!studentRecord}" var="stRec">
+                <apex:column headerValue="Name">
+                    <apex:inputField value="{!stRec.Name}"/>
+                </apex:column>
+                <apex:column headerValue="Class">
+                    <apex:inputField value="{!stRec.Class__c}"/>
+                </apex:column>
+                <apex:column headerValue="Email">
+                    <apex:inputField value="{!stRec.email__c}"/>
+                </apex:column>
+                <apex:column headerValue="DOB">
+                    <apex:inputField value="{!stRec.DOB__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>   
+    </apex:form>
+</apex:page>
